@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="kanban-title">Kanban Board</h1>
+        </header>
+        <div class="board">
+            <div class="board-col" id="todo">
+                <h2 class="title-col">To-do's</h2>
+                <input type="text" class="board-input" id="todo-todo" onkeydown="addItem(event)">
+                <div class="item-list" id="todo-list">
+                </div>
+            </div>
+            <div class="board-col" id="progress">
+                <h2 class="title-col">In Progress</h2>
+                <input type="text" class="board-input" id="todo-progress" onkeydown="addItem(event)">
+                <div class="item-list" id="progress-list">
+                </div>
+            </div>
+            <div class="board-col" id="done">
+                <h2 class="title-col">Done</h2>
+                <input type="text" class="board-input" id="todo-done" onkeydown="addItem(event)">
+                <div class="item-list" id="done-list">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Made by Kaif
+    </footer>
+</body>
+
+</html>
