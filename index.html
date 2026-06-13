@@ -19,19 +19,22 @@
             <h1 class="kanban-title">Kanban Board</h1>
         </header>
         <div class="board">
-            <div class="board-col" id="todo">
+            <div class="board-col" id="todo" ondragstart="dragstartHandler(event)" ondrop="handleDrop(event)"
+                ondragover="dragoverHandler(event)">
                 <h2 class="title-col">To-do's</h2>
                 <input type="text" class="board-input" id="todo-todo" onkeydown="addItem(event)">
                 <div class="item-list" id="todo-list">
                 </div>
             </div>
-            <div class="board-col" id="progress">
+            <div class="board-col" id="progress" ondragstart="dragstartHandler(event)" ondrop="handleDrop(event)"
+                ondragover="dragoverHandler(event)">
                 <h2 class="title-col">In Progress</h2>
                 <input type="text" class="board-input" id="todo-progress" onkeydown="addItem(event)">
                 <div class="item-list" id="progress-list">
                 </div>
             </div>
-            <div class="board-col" id="done">
+            <div class="board-col" id="done" ondragstart="dragstartHandler(event)" ondrop="handleDrop(event)"
+                ondragover="dragoverHandler(event)">
                 <h2 class="title-col">Done</h2>
                 <input type="text" class="board-input" id="todo-done" onkeydown="addItem(event)">
                 <div class="item-list" id="done-list">

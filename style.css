@@ -15,7 +15,7 @@ body {
     background-color: #FFEE93;
     display: flex;
     justify-content: space-around;
-    cursor: grab;
+    cursor: pointer;
     border: dashed 0.2vw;
     border-radius: 50px 50px
 }
@@ -34,7 +34,10 @@ body {
     scrollbar-width: none;
     /* margin: 5% 0%; */
     min-height: 0;
+    cursor: grab;
 }
+
+
 
 .title-col {
     color: #969696;
@@ -87,7 +90,8 @@ body {
     margin: 1% auto;
     width: 90%;
     height: 90px;
-    /* box-sizing: border-box; */
+    background-color: rgb(235, 186, 222);
+    text-align: left;
 }
 
 
