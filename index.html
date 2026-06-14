@@ -18,26 +18,34 @@
         <header class="header">
             <h1 class="kanban-title">Kanban Board</h1>
         </header>
+        <div class="modal-backdrop hidden" id="modal-backdrop">
+            <div class="item-modal">
+                <h2>Edit Task</h2>
+                <textarea id="modal-task-text"></textarea>
+                <div class="modal-actions">
+                    <button id="save-task">Save</button>
+                    <button id="cancel-task">Cancel</button>
+                </div>
+            </div>
+        </div>
+
         <div class="board">
-            <div class="board-col" id="todo" ondragstart="dragstartHandler(event)" ondrop="handleDrop(event)"
-                ondragover="dragoverHandler(event)">
-                <h2 class="title-col">To-do's</h2>
-                <input type="text" class="board-input" id="todo-todo" onkeydown="addItem(event)">
-                <div class="item-list" id="todo-list">
+            <div class="board-col" id="todo">
+                <h2 class="title-col title-todo">To-do's</h2>
+                <input type="text" class="board-input" id="todo-todo">
+                <div class="item-list" id="todo-list" data-status="todo">
                 </div>
             </div>
-            <div class="board-col" id="progress" ondragstart="dragstartHandler(event)" ondrop="handleDrop(event)"
-                ondragover="dragoverHandler(event)">
-                <h2 class="title-col">In Progress</h2>
-                <input type="text" class="board-input" id="todo-progress" onkeydown="addItem(event)">
-                <div class="item-list" id="progress-list">
+            <div class="board-col" id="progress">
+                <h2 class="title-col title-progress">In Progress</h2>
+                <input type="text" class="board-input" id="todo-progress">
+                <div class="item-list" id="progress-list" data-status="progress">
                 </div>
             </div>
-            <div class="board-col" id="done" ondragstart="dragstartHandler(event)" ondrop="handleDrop(event)"
-                ondragover="dragoverHandler(event)">
-                <h2 class="title-col">Done</h2>
-                <input type="text" class="board-input" id="todo-done" onkeydown="addItem(event)">
-                <div class="item-list" id="done-list">
+            <div class="board-col" id="done">
+                <h2 class="title-col title-done">Done</h2>
+                <input type="text" class="board-input" id="todo-done">
+                <div class="item-list" id="done-list" data-status="done">
                 </div>
             </div>
         </div>

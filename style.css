@@ -1,101 +1,347 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
     background-color: #FCF5C7;
     font-family: "Playwrite GB J", cursive;
+    color: #333;
+}
+
+
+.container {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
 }
 
 .header {
-    font-size: large;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.kanban-title {
+    margin: 0;
+    font-size: 2rem;
     font-weight: 800;
 }
 
+
 .board {
-    width: 80vw;
+    width: min(1200px, 95vw);
     height: 80vh;
-    margin: auto;
-    background-color: #FFEE93;
+
+    margin: 0 auto;
+
     display: flex;
-    justify-content: space-around;
-    cursor: pointer;
-    border: dashed 0.2vw;
-    border-radius: 50px 50px
+    gap: 1rem;
+
+    padding: 1rem;
+
+    border: 2px dashed #444;
+    border-radius: 24px;
+
+    background-color: #FFEE93;
 }
+
 
 .board-col {
-    margin: auto;
-    width: 30%;
-    height: 90%;
+    flex: 1;
+
     display: flex;
     flex-direction: column;
+
+    min-width: 0;
+
+    padding: 1rem;
+
+    border-radius: 16px;
 }
 
-.item-list{
-    flex: 1;
-    overflow-y: auto;
-    scrollbar-width: none;
-    /* margin: 5% 0%; */
-    min-height: 0;
-    cursor: grab;
-}
-
-
-
-.title-col {
-    color: #969696;
-    text-align: center;
-    background-color: bisque;
-    width: 90%;
-    margin-inline: auto;
-    padding: 2%;
-}
-
-#todo {
+.board-col.todo {
     background-color: #FFC09F;
-    border-radius: 20px 0px 0px 20px;
 }
 
-#progress {
+.board-col.progress {
     background-color: #A0CED9;
 }
 
-#done {
+.board-col.done {
     background-color: #ADF7B6;
-    border-radius: 0px 20px 20px 0px;
 }
 
+
+.title-col {
+    margin: 0 0 1rem;
+
+    text-align: center;
+
+    padding: 0.75rem;
+
+    border-radius: 12px;
+
+    color: #666;
+}
+
+.title-todo {
+    background-color: #fdb086;
+}
+
+.title-progress {
+    background-color: #85c9da;
+}
+
+.title-done {
+    background-color: #66f877;
+}
+
+
 .board-input {
-    border: none;
-    justify-content: center;
-    align-items: center;
-    margin-inline: auto;
-    width: 70%;
-    height: 35px;
-    font-size: 20px;
-    font-weight: 300;
-    border-radius: 40px;
-    padding: 10px 12px;
-    border: dashed 2px;
+    width: 100%;
+
+    padding: 0.75rem 1rem;
+
+    margin-bottom: 1rem;
+
+    border: 2px dashed #555;
+    border-radius: 999px;
+
     outline: none;
-    margin-bottom: 3%;
-    font-family: "Playwrite GB J", cursive;
-    /* transition: all 900ms; */
+
+    font-family: inherit;
+    font-size: 1rem;
+
+    background: white;
+
+    transition: all 0.2s ease;
 }
 
 .board-input:focus {
-    /* position: fixed; */
-    border: solid 2px;
+    border-style: solid;
+    border-color: #2563eb;
 }
 
-.board-item{
-    border: 1px solid slateblue;
-    margin: 1% auto;
-    width: 90%;
-    height: 90px;
+
+.item-list {
+    flex: 1;
+
+    min-height: 100px;
+
+    overflow-y: auto;
+
+    scrollbar-width: none;
+}
+
+.item-list::-webkit-scrollbar {
+    display: none;
+}
+
+
+.board-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 0.75rem;
+
+    width: 100%;
+
+    min-height: 90px;
+    margin-top: 0.75rem;
+
+    margin-bottom: 0.75rem;
+
+    padding: 0.75rem;
+
+    border: 1px solid #7c6ee6;
+    border-radius: 12px;
+
     background-color: rgb(235, 186, 222);
-    text-align: left;
+
+    cursor: grab;
+
+    transition: transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.board-item:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.board-item:active {
+    cursor: grabbing;
+}
+
+.task-content {
+    flex: 1;
+
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+
+    flex-shrink: 0;
+}
+
+.edit-btn,
+.delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #444;
+
+    transition: background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.edit-btn:hover {
+    background-color: rgba(37, 99, 235, 0.12);
+    color: #2563eb;
+}
+
+.delete-btn:hover {
+    background-color: rgba(220, 38, 38, 0.12);
+    color: #dc2626;
+}
+
+.edit-btn svg,
+.delete-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: 1000;
+}
+
+.item-modal {
+    width: min(500px, 90vw);
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.item-modal h2 {
+    margin: 0;
+}
+
+#modal-task-text {
+    width: 100%;
+    min-height: 180px;
+
+    padding: 1rem;
+
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+    resize: vertical;
+
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.modal-actions button {
+    padding: 0.75rem 1rem;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+#save-task {
+    background: #2563eb;
+    color: white;
+}
+
+#cancel-task {
+    background: #e5e7eb;
 }
 
 
 footer {
-    margin: auto;
-    position: absolute;
+    text-align: center;
+
+    padding: 1rem;
+
+    color: #666;
+}
+
+
+@media (max-width: 768px) {
+    .board {
+        flex-direction: column;
+
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .board-col {
+        min-height: 400px;
+    }
+
+    .kanban-title {
+        font-size: 1.5rem;
+    }
 }
